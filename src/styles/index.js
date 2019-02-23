@@ -4,7 +4,7 @@ export const globalStyles = StyleSheet.create({
     backgroundImage: {width: '100%', height: '100%'},
     backgroundGradient: {width: '100%', height: '100%', alignItems: 'center'},
     logo: {width: 130, height: 130, backgroundColor: 'rgba(255, 255, 255, 0.1)', borderRadius: 65, alignItems: 'center', justifyContent: 'center', marginTop: 120, marginBottom: 100},
-    textH1: {fontSize: 32, color: '#fff', fontWeight: '100'},
+    textH1: {fontSize: 32, color: '#fff', fontWeight: '100', letterSpacing: 1.5},
     text: {fontSize: 12, color: '#fff', fontWeight: '100'},
     loginButton: {width: '70%', height: 50, backgroundColor: '#6C56B7', borderRadius: 25, alignItems: 'center', justifyContent: 'center'},
     signupButton: {width: '100%', height: 50, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(140, 114, 227, 0.7)'},

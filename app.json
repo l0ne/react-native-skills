@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "piece",
-    "slug": "piece",
+    "slug": "l0ne_piece_app",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
@@ -24,6 +24,10 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "android": {
+      "package": "com.l0ne.piece"
+    },
+    "description": ""
   }
 }

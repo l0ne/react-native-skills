@@ -3,11 +3,12 @@ import {Text, TextInput, TouchableOpacity, View} from "react-native";
 import {globalStyles} from "../styles";
 import EntypoIcon from 'react-native-vector-icons/Entypo';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 export const Logo = () => {
     return (
         <View style={globalStyles.logo}>
-            <EntypoIcon name="users" size={60} color="rgba(255, 255, 255, 0.6)" />
+            <FontAwesome name='pied-piper-alt' size={65} color="rgba(255, 255, 255, 0.6)" />
         </View>
     );
 }
@@ -45,7 +46,17 @@ export const LoginInput = (props) => {
 export const BackButton = (props) => {
     return (
         <TouchableOpacity style={globalStyles.goBackButton} onPress={props.action}>
-            <AntDesignIcon name="back" size={25} color='#fff' />
+            <AntDesignIcon name="leftcircleo" size={25} color='#fff' />
         </TouchableOpacity>
     );
+}
+
+export const MenuItem = (props) => {
+    const {name, icon} = props;
+    return (
+        <TouchableOpacity style={{flexDirection: 'row', borderBottomColor: '#D8D8D8', borderBottomWidth: 1, marginTop: 15, alignItems: 'center', paddingBottom: 10}}>
+            <AntDesignIcon name={icon} size={25} color='#DEDEDE'/>
+            <Text style={{fontSize: 18, fontWeight: '100', marginLeft: 20}}>{name}</Text>
+        </TouchableOpacity>
+    )
 }
