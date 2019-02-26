@@ -4,7 +4,7 @@ import { LinearGradient } from 'expo';
 import {globalStyles} from "../../styles";
 import Moment from 'moment';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
-import {Index} from "../../components/menu";
+import Menu from "../../components/menu";
 
 const RatingCircles = () => {
     return (
@@ -44,7 +44,7 @@ export class HomeScreen extends React.Component {
                <ImageBackground source={require('../../../assets/img/home-image.png')} style={globalStyles.backgroundImage}>
                    <LinearGradient start={[0, 0]} end={[1, 1]} colors={['rgba(81, 74, 157, 0.8)', 'rgba(36, 198, 220, 0.8)']}
                                    style={globalStyles.backgroundGradient}>
-                       <Index />
+                       <Menu />
                        <Text style={globalStyles.textH1}>Good Morning</Text>
                        <Image source={{uri: 'https://ru.gravatar.com/userimage/51517435/eb4e608c4289a05b15f1d2e4a1d6197e.jpg?size=100'}} style={globalStyles.profileImage}/>
                        <Text style={[globalStyles.text, {fontSize: 15, marginTop: 20, letterSpacing: 1.5}]}>{Moment(new Date).format('dddd, MMMM d, Y')}</Text>

@@ -1,16 +1,32 @@
 import React, {Fragment} from "react";
 import {View, Text, TouchableOpacity} from "react-native";
+import {withNavigation} from "react-navigation";
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
-import {MenuItem} from "..";
 import {menuStyles} from "./style";
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-export class Index extends React.Component {
+const MenuItem = (props) => {
+    const {name, icon, action} = props;
+    return (
+        <TouchableOpacity style={menuStyles.menuItem} onPress={action}>
+            <AntDesignIcon name={icon} size={25} color='#DEDEDE'/>
+            <Text style={{fontSize: 18, fontWeight: '100', marginLeft: 20}}>{name}</Text>
+        </TouchableOpacity>
+    )
+}
+
+class Menu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             isVisible: true
         }
+    }
+
+    navigateTo(page) {
+        this.setState({isVisible: false});
+        this.props.navigation.navigate(page);
     }
 
     render() {
@@ -36,6 +52,10 @@ export class Index extends React.Component {
                             <MenuItem name='Deeds for the Day' icon='rocket1'/>
                             <MenuItem name='Monthly Planner' icon='calendar'/>
                             <MenuItem name='Settings' icon='setting'/>
+                            <MenuItem name='Logout' icon='logout' action={() => this.navigateTo('SignIn')}/>
+                        </View>
+                        <View style={{flex: 1, justifyContent: 'flex-end', paddingBottom: 100}}>
+                            <FontAwesome name='pied-piper-alt' size={60} color="#8C72E3" />
                         </View>
                     </View>
                 </View>}
@@ -43,3 +63,5 @@ export class Index extends React.Component {
         );
     }
 }
+
+export default withNavigation(Menu);

@@ -14,7 +14,7 @@ const AppNavigator = createStackNavigator(
         Home: HomeScreen,
     },
     {
-        initialRouteName: 'Home',
+        initialRouteName: 'Welcome',
         headerMode: 'none',
     }
 );
