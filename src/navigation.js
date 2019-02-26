@@ -4,6 +4,7 @@ import {SignInScreen} from "./pages/signin";
 import {SignUpScreen} from "./pages/signup";
 import {WalkthtoughScreen} from "./pages/walkthtough";
 import {HomeScreen} from "./pages/home";
+import {PlannerScreen} from "./pages/planner";
 
 const AppNavigator = createStackNavigator(
     {
@@ -12,6 +13,7 @@ const AppNavigator = createStackNavigator(
         SignUp: SignUpScreen,
         Walkthtough: WalkthtoughScreen,
         Home: HomeScreen,
+        Planner: PlannerScreen,
     },
     {
         initialRouteName: 'Welcome',

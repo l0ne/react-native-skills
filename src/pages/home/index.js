@@ -27,16 +27,6 @@ export class HomeScreen extends React.Component {
         }
     }
 
-    formatDate(date) {
-        const options = {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        }
-        return date.toLocaleDateString('en-Us', options);
-    }
-
     render() {
        Moment.locale('en');
        return(
@@ -63,14 +53,4 @@ export class HomeScreen extends React.Component {
            </Fragment>
        );
     }
-}
-
-const MenuItem = (props) => {
-    const {name, icon} = props;
-    return (
-        <TouchableOpacity style={{flexDirection: 'row', borderBottomColor: '#D8D8D8', borderBottomWidth: 1, marginTop: 15, alignItems: 'center', paddingBottom: 10}}>
-            <AntDesignIcon name={icon} size={25} color='#DEDEDE'/>
-            <Text style={{fontSize: 18, fontWeight: '100', marginLeft: 20}}>{name}</Text>
-        </TouchableOpacity>
-    )
 }

@@ -20,7 +20,7 @@ class Menu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isVisible: true
+            isVisible: false
         }
     }
 
@@ -48,9 +48,9 @@ class Menu extends React.Component {
                             <TouchableOpacity onPress={() => this.setState({isVisible: false})} style={{marginBottom: 30}}>
                                 <AntDesignIcon name='closecircleo' size={25} color='#DEDEDE'/>
                             </TouchableOpacity>
-                            <MenuItem name='Home' icon='home'/>
+                            <MenuItem name='Home' icon='home' action={() => this.navigateTo('Home')}/>
                             <MenuItem name='Deeds for the Day' icon='rocket1'/>
-                            <MenuItem name='Monthly Planner' icon='calendar'/>
+                            <MenuItem name='Monthly Planner' icon='calendar' action={() => this.navigateTo('Planner')}/>
                             <MenuItem name='Settings' icon='setting'/>
                             <MenuItem name='Logout' icon='logout' action={() => this.navigateTo('SignIn')}/>
                         </View>
