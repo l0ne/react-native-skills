@@ -5,6 +5,7 @@ import {SignUpScreen} from "./pages/signup";
 import {WalkthtoughScreen} from "./pages/walkthtough";
 import {HomeScreen} from "./pages/home";
 import {PlannerScreen} from "./pages/planner";
+import {SettingsScreen} from "./pages/settings";
 
 const AppNavigator = createStackNavigator(
     {
@@ -14,9 +15,10 @@ const AppNavigator = createStackNavigator(
         Walkthtough: WalkthtoughScreen,
         Home: HomeScreen,
         Planner: PlannerScreen,
+        Settings: SettingsScreen,
     },
     {
-        initialRouteName: 'Welcome',
+        initialRouteName: 'Settings',
         headerMode: 'none',
     }
 );

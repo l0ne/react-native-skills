@@ -34,6 +34,7 @@ export class PlannerScreen extends React.Component {
                            </View>
                            <Text style={globalStyles.text}>4 Deeds Complete</Text>
                        </View>
+                       <View style={{width: 200, height: 200, borderColor: '#fff', borderTopColor: '#8C72E3', borderWidth: 6, borderRadius: 100, marginTop: -200, transform: [{ rotate: '45deg'}]}}/>
                        <Text style={[globalStyles.text, {marginTop: 40, fontSize: 15, fontWeight: '100', letterSpacing: 1.5}]}>You’re on course to reach your</Text>
                        <Text style={[globalStyles.text, {fontSize: 15, fontWeight: '100', letterSpacing: 1.5}]}>goal for this month.</Text>
                        <Text style={[globalStyles.text, {marginTop: 40, fontSize: 15, fontWeight: '400', letterSpacing: 1.5}]}>A big high-five for you!</Text>

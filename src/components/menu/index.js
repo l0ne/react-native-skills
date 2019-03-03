@@ -30,9 +30,10 @@ class Menu extends React.Component {
     }
 
     render() {
+        const {style} = this.props;
         return(
             <Fragment>
-                <View style={menuStyles.navigation}>
+                <View style={[menuStyles.navigation, style]}>
                     <TouchableOpacity onPress={() => this.setState({isVisible: true})}>
                         <FeatherIcon name='menu' size={25} color='#fff' />
                     </TouchableOpacity>
@@ -51,7 +52,7 @@ class Menu extends React.Component {
                             <MenuItem name='Home' icon='home' action={() => this.navigateTo('Home')}/>
                             <MenuItem name='Deeds for the Day' icon='rocket1'/>
                             <MenuItem name='Monthly Planner' icon='calendar' action={() => this.navigateTo('Planner')}/>
-                            <MenuItem name='Settings' icon='setting'/>
+                            <MenuItem name='Settings' icon='setting' action={() => this.navigateTo('Settings')}/>
                             <MenuItem name='Logout' icon='logout' action={() => this.navigateTo('SignIn')}/>
                         </View>
                         <View style={{flex: 1, justifyContent: 'flex-end', paddingBottom: 100}}>

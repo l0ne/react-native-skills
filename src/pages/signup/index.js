@@ -22,7 +22,7 @@ export class SignUpScreen extends React.Component {
                            <AntDesignIcon name="camerao" size={40} color='#fff' />
                        </View>
                        <LoginInput placeholder='Username' icon='user'/>
-                       <LoginInput placeholder='Email' icon='mail'/>
+                       <LoginInput placeholder='Email' icon='envelope'/>
                        <LoginInput placeholder='Password' icon='lock'/>
                        <LoginInput placeholder='Retype Password' icon='lock'/>
                        <SignInButton text='Sign Up' action={() => this.props.navigation.navigate('Walkthtough')}/>

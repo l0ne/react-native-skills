@@ -34,10 +34,18 @@ export const SignUpButton = (props) => {
 }
 
 export const LoginInput = (props) => {
-    const {placeholder, icon} = props;
+    const {placeholder, icon, color} = props;
+    if (color) {
+        return (
+            <View style={globalStyles.inputContainer}>
+                <FontAwesome name={icon} size={25} color='#DEDEDE' />
+                <TextInput placeholder={placeholder} style={[globalStyles.loginInput, {borderBottomColor: '#DEDEDE', color: '#303030'}]} />
+            </View>
+            )
+    }
     return (
         <View style={globalStyles.inputContainer}>
-            <AntDesignIcon name={icon} size={25} color='#fff' />
+            <FontAwesome name={icon} size={25} color='#fff' />
             <TextInput placeholder={placeholder} placeholderTextColor='#fff' style={globalStyles.loginInput} />
         </View>
     );
