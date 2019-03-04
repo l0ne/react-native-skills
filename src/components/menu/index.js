@@ -50,7 +50,7 @@ class Menu extends React.Component {
                                 <AntDesignIcon name='closecircleo' size={25} color='#DEDEDE'/>
                             </TouchableOpacity>
                             <MenuItem name='Home' icon='home' action={() => this.navigateTo('Home')}/>
-                            <MenuItem name='Deeds for the Day' icon='rocket1'/>
+                            <MenuItem name='Deeds for the Day' icon='rocket1' action={() => this.navigateTo('Deeds')}/>
                             <MenuItem name='Monthly Planner' icon='calendar' action={() => this.navigateTo('Planner')}/>
                             <MenuItem name='Settings' icon='setting' action={() => this.navigateTo('Settings')}/>
                             <MenuItem name='Logout' icon='logout' action={() => this.navigateTo('SignIn')}/>

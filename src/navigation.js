@@ -6,6 +6,7 @@ import {WalkthtoughScreen} from "./pages/walkthtough";
 import {HomeScreen} from "./pages/home";
 import {PlannerScreen} from "./pages/planner";
 import {SettingsScreen} from "./pages/settings";
+import {DeedsScreen} from "./pages/deeds";
 
 const AppNavigator = createStackNavigator(
     {
@@ -16,9 +17,10 @@ const AppNavigator = createStackNavigator(
         Home: HomeScreen,
         Planner: PlannerScreen,
         Settings: SettingsScreen,
+        Deeds: DeedsScreen,
     },
     {
-        initialRouteName: 'Settings',
+        initialRouteName: 'Deeds',
         headerMode: 'none',
     }
 );

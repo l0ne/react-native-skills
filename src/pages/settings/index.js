@@ -27,7 +27,7 @@ export class SettingsScreen extends React.Component {
                        <Image source={{uri: 'https://ru.gravatar.com/userimage/51517435/eb4e608c4289a05b15f1d2e4a1d6197e.jpg?size=100'}} style={globalStyles.profileImage}/>
                    </LinearGradient>
                </ImageBackground>
-               <View style={{width: '90%', alignItems: 'center'}}>
+               <View style={{width: '100%', alignItems: 'center'}}>
                    <LoginInput placeholder='Username' icon='user' color={true} />
                    <LoginInput placeholder='Email' icon='envelope' color={true} />
                    <LoginInput placeholder='Password' icon='lock' color={true} />
