@@ -20,7 +20,7 @@ const AppNavigator = createStackNavigator(
         Deeds: DeedsScreen,
     },
     {
-        initialRouteName: 'Deeds',
+        initialRouteName: 'Welcome',
         headerMode: 'none',
     }
 );
