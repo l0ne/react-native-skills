@@ -34,19 +34,21 @@ export const SignUpButton = (props) => {
 }
 
 export const LoginInput = (props) => {
-    const {placeholder, icon, color} = props;
+    const {placeholder, icon, color, value, action} = props;
     if (color) {
         return (
             <View style={globalStyles.inputContainer}>
                 <FontAwesome name={icon} size={25} color='#DEDEDE' />
-                <TextInput placeholder={placeholder} style={[globalStyles.loginInput, {borderBottomColor: '#DEDEDE', color: '#303030'}]} />
+                <TextInput placeholder={placeholder} value={value} onChangeText={action}
+                           style={[globalStyles.loginInput, {borderBottomColor: '#DEDEDE', color: '#303030'}]} />
             </View>
             )
     }
     return (
         <View style={globalStyles.inputContainer}>
             <FontAwesome name={icon} size={25} color='#fff' />
-            <TextInput placeholder={placeholder} placeholderTextColor='#fff' style={globalStyles.loginInput} />
+            <TextInput placeholder={placeholder} placeholderTextColor='#fff' value={value} onChangeText={action}
+                       style={globalStyles.loginInput} />
         </View>
     );
 }
