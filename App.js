@@ -6,6 +6,7 @@ import NavigationService from "./src/utils/NavigationService";
 
 export default class App extends React.Component  {
     render() {
+        console.disableYellowBox = true;
         return (
             <Provider store={store}>
                 <AppContainer ref={navigatorRef => {NavigationService.setTopLevelNavigator(navigatorRef)}}/>

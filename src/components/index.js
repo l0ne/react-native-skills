@@ -1,7 +1,6 @@
 import React from "react";
 import {Text, TextInput, TouchableOpacity, View} from "react-native";
 import {globalStyles} from "../styles";
-import EntypoIcon from 'react-native-vector-icons/Entypo';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
@@ -14,9 +13,9 @@ export const Logo = () => {
 }
 
 export const SignInButton = (props) => {
-    const {text, action} = props;
+    const {text, action, disabled} = props;
     return (
-        <TouchableOpacity style={[globalStyles.loginButton, {marginTop: 20}]} onPress={action}>
+        <TouchableOpacity style={[globalStyles.loginButton, {marginTop: 20}, disabled && {opacity: 0.5}]} onPress={action} disabled={disabled}>
             <Text style={[globalStyles.text, {fontSize: 18}]}>{text}</Text>
         </TouchableOpacity>
     );

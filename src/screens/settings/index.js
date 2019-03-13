@@ -8,6 +8,7 @@ import {LoginInput, SignUpButton} from "../../components";
 import {connect} from 'react-redux';
 import {getSettings} from "../../actions/SettingsActions";
 import {LoadingView} from "../../components/loading";
+import {ErrorMessage} from "../../components/notification";
 
 class SettingsScreen extends Component {
     state = {
@@ -23,10 +24,11 @@ class SettingsScreen extends Component {
     }
 
     render() {
-       const {user, isLoading} = this.props.settings
+       const {user, isLoading, error} = this.props.settings
        Moment.locale('en');
        return(
            <Fragment>
+               {!!error && <ErrorMessage message={error} position={280} />}
                <ImageBackground source={require('../../../assets/img/settings.png')} style={[globalStyles.backgroundImage, {height: 350}]}>
                    <LinearGradient start={[0, 0]} end={[1, 1]} colors={['rgba(81, 74, 157, 0.8)', 'rgba(36, 198, 220, 0.8)']}
                                    style={globalStyles.backgroundGradient}>

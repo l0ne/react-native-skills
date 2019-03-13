@@ -1,8 +1,8 @@
 import React from 'react';
-import {AsyncStorage} from 'react-native';
 import axios from 'axios'
 import {REST_END} from "../constants";
 import NavigationService from "../utils/NavigationService";
+import {setItem} from "../utils/StorageService";
 
 export const LOGIN_PENDING = 'LOGIN_PENDING';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -21,7 +21,8 @@ export const doLogin = (email, password) => {
             let res = await axios.post(URL, request);
 
             if (res.data && res.data['user-token']) {
-                await AsyncStorage.setItem('userToken', res.data['user-token']);
+                await setItem('userToken', res.data['user-token']);
+                await setItem('userId', res.data['objectId']);
             }
 
             NavigationService.navigate('Settings');

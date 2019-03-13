@@ -1,11 +1,13 @@
 import React, {Fragment} from "react";
-import {ImageBackground, Text, TouchableOpacity, View} from "react-native";
+import {ImageBackground, Text, TouchableOpacity} from "react-native";
 import { LinearGradient } from 'expo';
 import {globalStyles} from "../../styles";
 import {LoginInput, Logo, SignInButton, SignUpButton} from "../../components";
 import {doLogin} from "../../actions/LoginActions";
 import {connect} from "react-redux";
 import {LoadingView} from "../../components/loading";
+import {ErrorMessage} from "../../components/notification";
+import {removeItem} from "../../utils/StorageService";
 
 const ForgotPassword = () => {
     return (
@@ -15,31 +17,31 @@ const ForgotPassword = () => {
     )
 }
 
-const ErrorMessage = (props) => {
-    const {message} = props;
-    return (
-        <View style={{position: 'absolute', top: 40, width: '100%', zIndex: 2, alignItems: 'center'}}>
-            <TouchableOpacity style={{borderRadius: 5, borderColor: '#D0021B', backgroundColor: 'rgba(208, 2, 37, 0.3)', borderWidth: 1, width: '90%', minHeight: 50, alignItems: 'center', justifyContent: 'center'}}>
-                <Text style={[globalStyles.text, {fontSize: 14, fontWeight: '100'}]}>{message}</Text>
-            </TouchableOpacity>
-        </View>
-
-    )
-}
-
 class SignInScreen extends React.Component {
     state = {
         email: '',
         password: ''
     }
 
+    emailPattern = /^[\w.]+@[a-zA-Z_]+?(\.[a-zA-Z]{2,})*(\.[a-zA-Z]{2,})$/;
+    paswordPattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
     constructor(props) {
         super(props);
+    }
+
+    componentDidMount() {
+        removeItem('userToken');
     }
 
     login() {
         const {email, password} = this.state;
         this.props.doLogin(email, password);
+    }
+
+    _isFormValid() {
+        const {email, password} = this.state;
+        return (email.trim() && this.emailPattern.test(email) && password.trim() && this.paswordPattern.test(password));
     }
 
     render() {
@@ -53,10 +55,12 @@ class SignInScreen extends React.Component {
                                    colors={['rgba(81, 74, 157, 0.8)', 'rgba(36, 198, 220, 0.8)']}
                                    style={globalStyles.backgroundGradient}>
                        <Logo />
-                       <LoginInput placeholder='Username' icon='user' action={(text) => this.setState({email: text})} value={this.state.email}/>
-                       <LoginInput placeholder='Password' icon='lock' action={(text) => this.setState({password: text})} value={this.state.password}/>
+                       <LoginInput placeholder='Username' icon='user'
+                                   action={(email) => this.setState({email})} value={this.state.email}/>
+                       <LoginInput placeholder='Password' icon='lock'
+                                   action={(password) => this.setState({password})} value={this.state.password}/>
                        <ForgotPassword/>
-                       <SignInButton text='Sign In' action={() => this.login()} />
+                       <SignInButton text='Sign In' action={() => this.login()} disabled={!this._isFormValid()}/>
                        <SignUpButton text='Don’t have an account? Sign Up' action={() => this.props.navigation.navigate('SignUp')}/>
                    </LinearGradient>
                </ImageBackground>

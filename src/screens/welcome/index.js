@@ -3,6 +3,7 @@ import {ImageBackground, Text, AsyncStorage} from "react-native";
 import {LinearGradient} from 'expo';
 import {globalStyles} from "../../styles";
 import {Logo, SignInButton, SignUpButton} from "../../components";
+import {getItem} from "../../utils/StorageService";
 
 export class WelcomeScreen extends Component {
 
@@ -12,7 +13,7 @@ export class WelcomeScreen extends Component {
     }
 
     _bootstrapAsync = async () => {
-        const userToken = await AsyncStorage.getItem('userToken');
+        const userToken = await getItem('userToken');
         this.props.navigation.navigate(userToken && 'App');
     };
 

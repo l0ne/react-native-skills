@@ -1,11 +1,10 @@
 import axios from 'axios'
 import {REST_END} from "../constants";
+import {getItem} from "../utils/StorageService";
 
 export const GET_SETTINGS_PENDING = 'GET_SETTINGS_PENDING';
 export const GET_SETTINGS_SUCCESS = 'GET_SETTINGS_SUCCESS';
 export const GET_SETTINGS_ERROR = 'GET_SETTINGS_ERROR';
-
-const URL = REST_END.user + '/52530D6C-1184-5E69-FFAB-F2DC9369D800'
 
 export const getSettings = () => {
     return async dispatch => {
@@ -14,7 +13,11 @@ export const getSettings = () => {
         });
 
         try {
-            let res = await axios.get(URL);
+
+            const userToken = await getItem('userToken');
+            const userId = await getItem('userId');
+
+            let res = await axios.get(REST_END.user + userId, {headers: { 'user-token': userToken }});
 
             dispatch({
                 type: GET_SETTINGS_SUCCESS,
@@ -23,7 +26,7 @@ export const getSettings = () => {
         } catch (e) {
             dispatch({
                 type: GET_SETTINGS_ERROR,
-                payload: {error: e}
+                error: e.message
             });
         }
     }
