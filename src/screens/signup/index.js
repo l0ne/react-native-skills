@@ -27,7 +27,7 @@ export class SignUpScreen extends React.Component {
                        <LoginInput placeholder='Retype Password' icon='lock'/>
                        <SignInButton text='Sign Up' action={() => this.props.navigation.navigate('Walkthtough')}/>
                        <SignUpButton text='Already have an account? Sign In'
-                                     action={() => this.props.navigation.navigate('SignIn')}/>
+                                     action={() => this.props.navigation.navigate('SignIn')} />
                    </LinearGradient>
                </ImageBackground>
            </Fragment>
