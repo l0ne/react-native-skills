@@ -28,6 +28,7 @@ Payman uses a number of open source projects to work properly:
 * [React Redux] - Official React bindings for Redux
 * [Axios] - Promise based HTTP client for the browser and node.js
 * [Moment.js] - Parse, validate, manipulate, and display dates and times in JavaScript.
+* [Backendless] - Backendless mBaaS is a complete backend with support for user authentication, data persistence, file storage, messaging and custom business logic. Everything you need to build awesome apps without worrying about servers.
 
 License
 ----
@@ -43,3 +44,4 @@ MIT
 [React Redux]: https://react-redux.js.org/
 [Axios]: https://github.com/axios/axios
 [Moment.js]: https://momentjs.com/
+[Backendless]: https://backendless.com/
