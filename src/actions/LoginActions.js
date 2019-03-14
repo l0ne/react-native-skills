@@ -8,8 +8,6 @@ export const LOGIN_PENDING = 'LOGIN_PENDING';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 
-const URL = REST_END.login
-
 export const doLogin = (email, password) => {
     return async dispatch => {
         dispatch({
@@ -18,7 +16,7 @@ export const doLogin = (email, password) => {
 
         try {
             let request = {login: email, password: password};
-            let res = await axios.post(URL, request);
+            let res = await axios.post(REST_END.login, request);
 
             if (res.data && res.data['user-token']) {
                 await setItem('userToken', res.data['user-token']);
