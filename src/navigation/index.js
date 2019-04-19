@@ -9,10 +9,10 @@ import SettingsScreen from "../screens/settings";
 import {DeedsScreen} from "../screens/deeds";
 
 const AppStack = createStackNavigator({
-        Settings: SettingsScreen,
-        Walkthtough: WalkthtoughScreen,
         Home: HomeScreen,
         Planner: PlannerScreen,
+        Settings: SettingsScreen,
+        Walkthtough: WalkthtoughScreen,
         Deeds: DeedsScreen,
     }, {
         headerMode: 'none'

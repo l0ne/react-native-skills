@@ -4,24 +4,27 @@ import { LinearGradient } from 'expo';
 import {globalStyles} from "../../styles";
 import Moment from 'moment';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
-import Menu from "../../components/menu";
+import Menu, {MenuBar} from "../../components/menu";
 
 export class PlannerScreen extends React.Component {
+
+    state = {
+        menu: false
+    }
+
     constructor(props) {
         super(props);
-        this.state = {
-            isVisible: true
-        }
     }
 
     render() {
        Moment.locale('en');
        return(
            <Fragment>
+               {this.state.menu && <Menu close={() => this.setState({menu: false})} />}
                <ImageBackground source={require('../../../assets/img/planner-image.png')} style={globalStyles.backgroundImage}>
                    <LinearGradient start={[0, 0]} end={[1, 1]} colors={['rgba(81, 74, 157, 0.8)', 'rgba(36, 198, 220, 0.8)']}
                                    style={globalStyles.backgroundGradient}>
-                       <Menu />
+                       <MenuBar action={() => this.setState({menu: true})} />
                        <View style={{flexDirection: 'row', width: '90%', justifyContent: 'space-between', alignItems: 'center'}}>
                            <EntypoIcon name='chevron-thin-left' size={30} color='#fff'/>
                            <Text style={globalStyles.textH1}>{Moment(new Date).format('MMMM, Y')}</Text>

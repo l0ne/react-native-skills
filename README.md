@@ -1,6 +1,6 @@
 # My React Native Skills Demo App
 
-This application is for sending money to random people. This way you can help someone.
+##### This application is for sending money to random people. This way you can help someone.
 
 ### Design
 
@@ -8,13 +8,19 @@ Following design: https://scene.zeplin.io/project/5c700b3de8dd061a7ef0f8eb
 
 Created in Sketch
 
-### Installation
+### How To Use
 
 ```
-git clone 
+# Clone this repository
+git clone https://github.com/l0ne/react-native-skills.git
 
+# Go into the repository
+cd react-native-skills
+
+# Install dependencies
 yarn install
 
+# Run the app
 yarn start
 ```
 

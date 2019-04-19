@@ -8,6 +8,7 @@ import {connect} from "react-redux";
 import {LoadingView} from "../../components/loading";
 import {ErrorMessage} from "../../components/notification";
 import {removeItem} from "../../utils/StorageService";
+import {EMAIL_PATTERN, PASSWORD_PATTERN} from "../../constants";
 
 const ForgotPassword = () => {
     return (
@@ -22,9 +23,6 @@ class SignInScreen extends React.Component {
         email: '',
         password: ''
     }
-
-    emailPattern = /^[\w.]+@[a-zA-Z_]+?(\.[a-zA-Z]{2,})*(\.[a-zA-Z]{2,})$/;
-    paswordPattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
     constructor(props) {
         super(props);
@@ -41,7 +39,7 @@ class SignInScreen extends React.Component {
 
     _isFormValid() {
         const {email, password} = this.state;
-        return (email.trim() && this.emailPattern.test(email) && password.trim() && this.paswordPattern.test(password));
+        return (email.trim() && EMAIL_PATTERN.test(email) && password.trim() && PASSWORD_PATTERN.test(password));
     }
 
     render() {
@@ -55,9 +53,9 @@ class SignInScreen extends React.Component {
                                    colors={['rgba(81, 74, 157, 0.8)', 'rgba(36, 198, 220, 0.8)']}
                                    style={globalStyles.backgroundGradient}>
                        <Logo />
-                       <LoginInput placeholder='Username' icon='user'
+                       <LoginInput placeholder='Email' icon='envelope'
                                    action={(email) => this.setState({email})} value={this.state.email}/>
-                       <LoginInput placeholder='Password' icon='lock'
+                       <LoginInput placeholder='Password' icon='lock' password={true}
                                    action={(password) => this.setState({password})} value={this.state.password}/>
                        <ForgotPassword/>
                        <SignInButton text='Sign In' action={() => this.login()} disabled={!this._isFormValid()}/>

@@ -33,21 +33,16 @@ export const SignUpButton = (props) => {
 }
 
 export const LoginInput = (props) => {
-    const {placeholder, icon, color, value, action} = props;
-    if (color) {
-        return (
-            <View style={globalStyles.inputContainer}>
-                <FontAwesome name={icon} size={25} color='#DEDEDE' />
-                <TextInput placeholder={placeholder} value={value} onChangeText={action}
-                           style={[globalStyles.loginInput, {borderBottomColor: '#DEDEDE', color: '#303030'}]} />
-            </View>
-            )
-    }
+    const {placeholder, icon, color, value, action, password} = props;
     return (
         <View style={globalStyles.inputContainer}>
-            <FontAwesome name={icon} size={25} color='#fff' />
-            <TextInput placeholder={placeholder} placeholderTextColor='#fff' value={value} onChangeText={action}
-                       style={globalStyles.loginInput} />
+            <FontAwesome name={icon} size={25} color={color? '#DEDEDE': '#fff'} />
+            <TextInput placeholder={placeholder} placeholderTextColor={color? '#000': '#fff'} value={value}
+                       onChangeText={action} secureTextEntry={password? true: false}
+                       style={[globalStyles.loginInput, color && {borderBottomColor: '#DEDEDE', color: '#303030'}]} />
+            {/*<TouchableOpacity style={{marginLeft: -20}} >*/}
+                {/*<FontAwesome name='eye' size={18} color={color? '#DEDEDE': '#fff'} />*/}
+            {/*</TouchableOpacity>*/}
         </View>
     );
 }

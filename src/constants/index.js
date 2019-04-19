@@ -7,3 +7,6 @@ export const REST_END = {
     user: REST_API + '/data/users/',
     login: REST_API + '/users/login'
 }
+
+export const EMAIL_PATTERN = /^[\w.]+@[a-zA-Z_]+?(\.[a-zA-Z]{2,})*(\.[a-zA-Z]{2,})$/;
+export const PASSWORD_PATTERN = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;

@@ -36,6 +36,7 @@ class Menu extends React.Component {
     }
 
     navigateTo(page) {
+        this.props.close();
         this.props.navigation.navigate(page);
     }
 
